@@ -1,13 +1,12 @@
 * Spring 2023 - Lab 03
 
-* Last name:
+* Last name: LaBarca
 
-* First name:
+* First name: Matthew
 
-* GitHub username:
+* GitHub username: mattlabarca10
 
-* Notes:
-
+* Notes: This lab creates functions regarding the data of the Ashokan Reservoir in 2018.
 
 
 * General instructions:
@@ -84,7 +83,7 @@ For this task, add new files, ~reverseorder.cpp~ and
 ~reverseorder.h~. You will have to modify the ~Makefile~
 appropriately. 
 
-In these files create a function ~void reverse_oreder(std::string
+In these files create a function ~void reverse_order(std::string
 date1, std::string date2)~. This function should print out the West
 basin elevation for all days in the interval in reverse chronological
 order.
