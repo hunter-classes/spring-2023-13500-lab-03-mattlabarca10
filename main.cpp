@@ -11,7 +11,7 @@ int main()
   std::cout << get_min_east() << std::endl;
   std::cout << get_max_east() << std::endl;
 
-  std::cout << compare_basins("05/10/2018") << std::endl;
+  std::cout << compare_basins("01/10/2018") << std::endl;
   std::cout << compare_basins("09/10/2018") << std::endl;
 
   reverse_order("05/10/2018","05/15/2018");

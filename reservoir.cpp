@@ -79,7 +79,7 @@ double get_max_east()
     return 0;
 }
 
-// compares east and west basin volume of a certain date and see which is larger
+// compares east and west basin elevation of a certain date and see which is larger
 std::string compare_basins(std::string date)
 {
     std::ifstream file("Current_Reservoir_Levels.tsv");
@@ -93,27 +93,19 @@ std::string compare_basins(std::string date)
     double eastSt;
     double eastEl;
     double westSt;
-    double eastStorageValue;
-    double westStorageValue;
+    double westEl;
 
-    while(file >> dates >> eastSt) { // finds east basin storage for the date
+    while(file >> dates >> eastSt >> eastEl >> westSt >> westEl) { // finds west basin elevation for the date
         if(date == dates){
-            eastStorageValue = eastSt;
+            if (westEl > eastEl)
+                return "West";
+            else if(eastEl > westEl) //checks which is greater or if they're equal and returns accordingly
+                return "East";
+            else
+                return "Equal";
         }
         file.ignore(INT_MAX, '\n');
     }
-    while(file >> dates >> eastSt >> eastEl >> westSt) { // finds west basin storage for the date
-        if(date == dates){
-            westStorageValue = westSt;
-        }
-        file.ignore(INT_MAX, '\n');
-    }
-    if(eastStorageValue > westStorageValue) //checks which is greater or if they're equal and returns accordingly
-        return "East";
-    else if (eastStorageValue > westStorageValue)
-        return "West";
-    else
-        return "Equal";
 
     file.close();
     return 0;
